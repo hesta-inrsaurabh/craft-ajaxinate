@@ -157,8 +157,12 @@ class CraftAjaxinateService extends Component
 
         // get current active site handle from CP
         $currentSite = Craft::$app->getSites()->getCurrentSite()->handle;
-        $path = $path[$currentSite]['template'];
 
+        // if template selected in plugin settings
+        if (!empty($path)) {
+            $path = $path[$currentSite]['template'];
+        }
+        
         // Path override
         if (isset($settings) && !empty($settings['template'])) {
             $path = $settings['template'];
@@ -297,7 +301,7 @@ class CraftAjaxinateService extends Component
             // No skip
             $offset = 0;
             // set limit to offset as we need to load the same number of entries.
-            $entryQuery->limit($defaultOffset);
+            // $entryQuery->limit($defaultOffset); //TODO Need to debug this
         } else {
             // In CP and in render varible call user have option to skip entries,
             $offset = $defaultOffset + (($currentpage-2)*$limit);

@@ -115,7 +115,7 @@ Sample code for calling the **Rendering Template**
                         'date':'dateHandleName',
                         'price':'priceHandleName'
                       },`
-  - section : Pass the sections name like `['news', 'services']`
+  - section : Pass the sections name like `['news', 'services']` or select in plugin settings.
   - catGroup : Array of categories handle like `['cms','craftcms']` Required to show the categories filter.
   - catGroupLimit : Number of categories child to show, `default is 10`.
   - tagGroup : Name of tag group handle like `'blogtag'`.
@@ -183,6 +183,7 @@ Load 3 entries on page load and show filters of `featuredEntry (lightswitch), pr
       offset: 3,
       initLoad: true,
       resetBtnState: 1,
+      section: ['news'], # or select in plugin settings
       extraFilters: ['featuredEntry', 'price'],
       catGroup: ['mensClothing', 'shoes'],
       sortingFilters:{
@@ -200,6 +201,7 @@ Load 3 entries on page load and `shortDescription` should not be empty. As the l
       offset: 3,
       initLoad: true,
       resetBtnState: 1,
+      section: ['news'], # or select in plugin settings
       query:{
         'shortDescription':':notempty:',
       },
@@ -216,6 +218,7 @@ Load 3 entries on page load and `postDate` before `2019-07-31`.
       offset: 3,
       initLoad: true,
       resetBtnState: 1,
+      section: ['news'], # or select in plugin settings
       query:{
         'before': '2019-07-26'
       },
@@ -231,6 +234,7 @@ Load 4 entries on page load and `postDate` before `2019-07-31` and `shortDescrip
       offset: 4,
       limit: 5,
       initLoad: true,
+      section: ['news'], # or select in plugin settings
       resetBtnState: 1,
       query:{
         'shortDescription':':notempty:',
@@ -245,6 +249,7 @@ Load 4 entries on page load and `postDate` before `2019-07-31` and `shortDescrip
     {{ craft.craftAjaxinate.render({
       limit: 5,
       resetBtnState: 1,
+      section: ['news'], # or select in plugin settings
       query:{
         'where': ['or', ['like','title','foo'], ['like','title','bar']],
       }      
@@ -260,6 +265,7 @@ Append **field_** before handleName.
     {{ craft.craftAjaxinate.render({
       limit: 5,
       resetBtnState: 1,
+      section: ['news'], # or select in plugin settings
       query:{
         'where': ['or', ['like','title','foo'], ['like','title','bar']],
         'orWhere': ['and', ['=','field_featuredEntry',1]],
@@ -275,6 +281,7 @@ Append **field_** before handleName.
     {{ craft.craftAjaxinate.render({
       limit: 5,
       resetBtnState: 1,
+      section: ['news'], # or select in plugin settings
       query:{
         'postDate': ['and', '>= 2019-07-12', '<= 2019-07-31'],
         'orWhere': ['and', ['=','field_featuredEntry',1]],
@@ -313,7 +320,6 @@ Append **field_** before handleName.
 
 {% for item in entries %}
   <a href="{{item.url}}">{{ item.title }}</a>
-  <span>Price : {{ item.priceHanlde }} </span>
   .....
 {% endfor %}
 ```
@@ -343,7 +349,7 @@ Found any issue :confused: , [Create a Github Issue](https://github.com/Hestabit
 
 ## Credits
 
-- Developed by [Saurabh Ranjan](http://maddyboy.github.io)
+- Developed by [Saurabh Ranjan](https://github.com/insaurabh)
 - Boilerplate by [pluginfactory](https://pluginfactory.io)
 
 Brought to you by [HestaBit](https://github.com/Hestabit)

@@ -1,0 +1,25 @@
+{# user input classes #}
+{% set btnWrapperClass = options.btnWrapperClass ?? '' %}
+{% set loadMoreName = options.loadMoreName ?? 'Load More' %}
+{% set pagesToLoad = pagesToLoad ?? 3 %}
+{% set bottomOffset = bottomOffset ?? 300 %}
+{% set loaderHtml = loaderHtml ?? '' %}
+{% set scrollActive = scrollActive ?? false %} 
+
+
+<form class="ajaxinateLoadMore" name="ajaxinateLoadMore" method="POST">
+	<div id="js_Hb_Loader" style="display: none;">
+    	{{ loaderHtml }}
+	</div>
+
+	<div class="pagination">
+		<a href="#">&laquo;</a>
+		<a href="#" class="active">1</a>
+		<a href="#">2</a>
+		<a href="#">3</a>
+		<a href="#">4</a>
+		<a href="#">5</a>
+		<a href="#">&raquo;</a>
+  	</div>
+	<div class="js_elMessage"></div>
+</form>

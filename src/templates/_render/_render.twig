@@ -79,10 +79,12 @@
 		<div class="{{ catWrapperClass }}">
 			<ul class="{{ ulClass }}">
 				{% nav category in categories %}
+    				{% set entryCount = craft.entries.relatedTo(category).count() %}
 					<li class="{{ liClass }}">
-					<label>
-					 <input type="checkbox" name="cat" class="js_Cat" value="{{category.slug }}" > {{ category.title }}
-					</label>
+						<label>
+						<input type="checkbox" name="cat" class="js_Cat" value="{{category.slug }}" > {{ category.title }}
+						</label>
+						<span>( {{ entryCount }} )</span>
 						{% ifchildren %}
 							<ul>
 								{% children %}
@@ -96,6 +98,6 @@
 	{% endif %}
 
 	{{ createFilterHtml }}
-
+	
 	{{ tagFilterHtml }}
 </form>

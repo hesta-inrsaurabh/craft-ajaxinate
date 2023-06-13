@@ -124,7 +124,7 @@ class CraftAjaxinateVariable
         if (isset($options['catGroup']) && !empty(array_filter($options['catGroup']))) {
             $catFilterState = true;
         }
-       
+        
         $tagFilterHtml = '';
         if (isset($options['tagGroup']) && !empty($options['tagGroup'])) {
             $tagFilterHtml = CraftAjaxinate::$plugin->craftAjaxinateService->createTagFilterHtml($options);
